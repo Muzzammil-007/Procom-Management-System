@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AdminRegistration from './AdminRegistration';
+import AddCompetition from './AddCompetition';
+import CompetitionsList from './CompetitionsList';
+import CompetitionInfoBoard from './CompetitionInfoBoard';
+
 
 function App() {
+  const [admins, setAdmins] = useState([]);
+  const [competitions, setCompetitions] = useState([]);
+  const [currentAdmin, setCurrentAdmin] = useState(null);
+
+  const handleAdminRegister = (newAdmin) => {
+    const adminEmails = admins.map((admin) => admin.email);
+    if (adminEmails.includes(newAdmin.email)) {
+      alert('An admin with that email address already exists');
+      return;
+    }
+    setAdmins([...admins, newAdmin]);
+    setCurrentAdmin(newAdmin);
+    alert('Admin registered successfully');
+  };
+
+  const handleAddCompetition = (newCompetition) => {
+    setCompetitions([...competitions, newCompetition]);
+    alert('Competition added successfully');
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Procom Management System</h1>
+      {currentAdmin ? (
+        <div>
+          <AddCompetition onAddCompetition={handleAddCompetition} />
+          <CompetitionsList competitions={competitions} />
+          <CompetitionInfoBoard  />
+        </div>
+      ) : (
+        <AdminRegistration onRegister={handleAdminRegister} />
+      )}
     </div>
   );
 }
