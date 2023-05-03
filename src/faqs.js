@@ -36,23 +36,25 @@ const FAQ = ({ question, answer }) => {
 const FAQsPage = () => {
   return (
     <div>
-    <div className="navbar">
+      <div className="navbar">
         <div className="logo">Procom</div>
         <div className="links">
           <a href="#">Home</a>
           <a href="#">About</a>
           <a href="#">Contact</a>
+          <a href="#">Sponsors</a>
         </div>
       </div>
-    <div className="faqsPage">
-      
-      <div className="faqsHeader">Frequently Asked Questions</div>
-      <div className="faqs">
-        {questionsAndAnswers.map((qa, index) => (
-          <FAQ key={index} question={qa.question} answer={qa.answer} />
-        ))}
-      </div>
-    </div></div>
+
+      <div className="faqsPage">
+
+        <div className="faqsHeader">Frequently Asked Questions</div>
+        <div className="faqs">
+          {questionsAndAnswers.map((qa, index) => (
+            <FAQ key={index} question={qa.question} answer={qa.answer} />
+          ))}
+        </div>
+      </div></div>
   );
 };
 

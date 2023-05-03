@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import FAQ from './faqs';
 import Companies from './companies';
+import CVBuilder from './CVbuilder';
 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Companies />
+    <CVBuilder />
   </React.StrictMode>
 );
 
