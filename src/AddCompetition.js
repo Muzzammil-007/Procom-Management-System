@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import styles from './AdminRegisteration.css';
+
 
 function AddCompetition(props) {
   const [name, setName] = useState('');
@@ -22,20 +24,35 @@ function AddCompetition(props) {
 
   return (
     <div>
-      <h2>Add Competition</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
+       <div className="navbar">
+                <div className="logo">Procom</div>
+                <div className="links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Sponsors</a>
+                </div>
+      </div>
+      <div className='container'>
+        <div>
+      <h2 className='heading'>Add Competition</h2>
+      <form className='form' onSubmit={handleSubmit}>
+      <div className='formField'>
+        <label className='formLabel'>
           Name:
-          <input type="text" value={name} onChange={handleNameChange} />
+          <input className='formInput' type="text" value={name} onChange={handleNameChange} />
         </label>
-        <br />
-        <label>
+        </div>
+        <div className='formField'>
+        <label className='formLabel'>
           Description:
-          <textarea value={description} onChange={handleDescriptionChange} />
+          <input className='formInput'type='text' value={description} onChange={handleDescriptionChange} />
         </label>
-        <br />
-        <button type="submit">Add Competition</button>
+        </div>   
+      <button className='submitButton' type="submit">Add Competition</button>
       </form>
+      </div>
+    </div>
     </div>
   );
 }

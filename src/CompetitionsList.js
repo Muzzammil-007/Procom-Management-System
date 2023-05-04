@@ -18,7 +18,7 @@ function CompetitionsList(props) {
     <div>
       <h2>Competitions List</h2>
       <ul>
-        {competitions.map((competition, index) => (
+        {competitions && competitions.map((competition, index) => (
           <li key={index}>
             <h3>{competition.name}</h3>
             {selectedCompetition === competition ? (

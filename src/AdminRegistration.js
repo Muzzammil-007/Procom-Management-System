@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './AdminRegisteration.css';
 
 function AdminRegistration(props) {
   const [email, setEmail] = useState('');
@@ -32,26 +33,42 @@ function AdminRegistration(props) {
 
   return (
     <div>
-      <h2>Admin Registration</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <div className="navbar">
+                <div className="logo">Procom</div>
+                <div className="links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Sponsors</a>
+                </div>
+      </div>
+    
+    <div className='container'>
+    <div>
+       <h2 className='formHeading'>Admin Registration</h2>
+      <form className="form" onSubmit={handleSubmit}>
+      <div className='formField'>
+        <label className='formLabel' htmlFor="email">
           Email:
-          <input type="email" value={email} onChange={handleEmailChange} />
+          <input className="formField" type="email" value={email} onChange={handleEmailChange} />
         </label>
-        <br />
-        <label>
+        </div>
+        <div className='formField'>
+        <label className='formLabel' htmlFor="password">
           Password:
-          <input type="password" value={password} onChange={handlePasswordChange} />
-        </label>
-        <br />
-        <label>
+          <input className="formField" type="password" value={password} onChange={handlePasswordChange} />
+        </label></div>
+        
+        <div className='formField'>
+        <label className='formLabel' htmlFor="password">
           Confirm Password:
-          <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
-        </label>
-        <br />
-        <button type="submit">Register</button>
+          <input className="formField" type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
+        </label></div>
+           <button className="submitButton" type="submit">Register</button>
       </form>
     </div>
+    </div>
+  </div>
   );
 }
 

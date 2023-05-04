@@ -3,6 +3,8 @@ import AdminRegistration from './AdminRegistration';
 import AddCompetition from './AddCompetition';
 import CompetitionsList from './CompetitionsList';
 import CompetitionInfoBoard from './CompetitionInfoBoard';
+import AdminDashboard from './AdminDashboard';
+
 
 
 function App() {
@@ -28,13 +30,23 @@ function App() {
 
 
   return (
-    <div>
-      <h1>Procom Management System</h1>
-      {currentAdmin ? (
+        <div>
+    <div className="navbar">
+                   <div className="logo">Procom</div>
+                   <div className="links">
+                       <a href="#">Home</a>
+                       <a href="#">About</a>
+                       <a href="#">Contact</a>
+                       <a href="#">Sponsors</a>
+                   </div>
+         </div>
+
+      
+            {currentAdmin ? (
         <div>
           <AddCompetition onAddCompetition={handleAddCompetition} />
           <CompetitionsList competitions={competitions} />
-          <CompetitionInfoBoard  />
+          <AdminDashboard />
         </div>
       ) : (
         <AdminRegistration onRegister={handleAdminRegister} />

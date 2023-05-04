@@ -4,13 +4,20 @@ import './index.css';
 import FAQ from './faqs';
 import Companies from './companies';
 import CVBuilder from './CVbuilder';
-
+import App from './App'
 import reportWebVitals from './reportWebVitals';
-
+import AdminRegisterationParent from './AdminRegisterationParent';
+import AdminRegistration from './AdminRegistration';
+import AddCompetition from './AddCompetition';
+import CompetitionsList from './CompetitionsList';
+import CompetitionInfoBoard from './CompetitionInfoBoard';
+import AdminDashboard from './AdminDashboard';
+import RegisterForCompetition from './RegisterForCompetition';
+  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CVBuilder />
+    <AddCompetition/>
   </React.StrictMode>
 );
 
