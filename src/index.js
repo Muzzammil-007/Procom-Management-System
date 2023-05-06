@@ -13,11 +13,14 @@ import CompetitionsList from './CompetitionsList';
 import CompetitionInfoBoard from './CompetitionInfoBoard';
 import AdminDashboard from './AdminDashboard';
 import RegisterForCompetition from './RegisterForCompetition';
-  
+import AddCompetitionParent from './AddCompetitionParent'
+import CompetitionsListParent from './CompetitionsListParent';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AddCompetition/>
+
+    <CompetitionsListParent/>
   </React.StrictMode>
 );
 

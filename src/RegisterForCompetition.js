@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import styles from './AdminRegisteration.css';
 
 function RegisterForCompetition(props) {
-  const { onRegister } = props;
+  const { competition, onRegister } = props;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [competition, setCompetition] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     onRegister({ competition, name, email });
-    setCompetition('');
     setName('');
     setEmail('');
   };
@@ -30,12 +28,6 @@ function RegisterForCompetition(props) {
       <div>
       <h2 className='heading'>Register for a competition</h2>
       <form className='form' onSubmit={handleSubmit}>
-      <div className='formField'>
-        <label className='formLabel'>
-          Competition:
-          <input className="formInput" type="text" value={competition} onChange={(e) => setCompetition(e.target.value)} />
-        </label>
-        </div>
         <div className='formField'>
         <label className='formLabel'>
           Name:

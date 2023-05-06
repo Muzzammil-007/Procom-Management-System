@@ -1,19 +1,50 @@
 import React from 'react';
-import CompetitionInfoBoard from './CompetitionInfoBoard';
-import CompetitionsList from './CompetitionsList';
 
-
-function AdminDashboard(props) {
+function CompetitionInfoBoard(props) {
   const { competitions, registrations } = props;
+
+  // Calculate total registrations for each competition
+  const totalRegistrations = {};
+  registrations.forEach((registration) => {
+    const competitionName = registration.competition.name;
+    if (!totalRegistrations[competitionName]) {
+      totalRegistrations[competitionName] = 1;
+    } else {
+      totalRegistrations[competitionName]++;
+    }
+  });
 
   return (
     <div>
-       <h1>Procom Management System - Admin Dashboard</h1>
-      <CompetitionsList competitions={competitions} />
-      <hr />
-      <CompetitionInfoBoard competitions={competitions} registrations={registrations} />
+      <h2>Competition Info Board</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Competition</th>
+            <th>Total Registrations</th>
+            <th>Registered Candidates</th>
+          </tr>
+        </thead>
+        <tbody>
+          {competitions.map((competition, index) => (
+            <tr key={index}>
+              <td>{competition.name}</td>
+              <td>{totalRegistrations[competition.name] || 0}</td>
+              <td>
+                <ul>
+                  {registrations
+                    .filter((registration) => registration.competition === competition)
+                    .map((registration, index) => (
+                      <li key={index}>{registration.name}</li>
+                    ))}
+                </ul>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
 
-export default AdminDashboard;
+export default CompetitionInfoBoard;

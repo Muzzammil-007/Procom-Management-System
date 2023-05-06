@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RegisterForCompetition from './RegisterForCompetition';
 
+
 function CompetitionsList(props) {
   const { competitions } = props;
   const [selectedCompetition, setSelectedCompetition] = useState(null);
@@ -18,7 +19,7 @@ function CompetitionsList(props) {
     <div>
       <h2>Competitions List</h2>
       <ul>
-        {competitions && competitions.map((competition, index) => (
+        {competitions.map((competition, index) => (
           <li key={index}>
             <h3>{competition.name}</h3>
             {selectedCompetition === competition ? (
