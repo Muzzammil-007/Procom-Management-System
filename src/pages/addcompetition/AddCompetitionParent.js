@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AdminRegistration from "../adminregisteration/AdminRegistration";
 import AddCompetition from "./AddCompetition";
 
 export default function AddCompetitionParent() {

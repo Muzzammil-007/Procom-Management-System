@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import AdminRegistration from "./AdminRegistration";
-import styles from "./AdminRegisteration.css";
+import "./AdminRegisteration.css";
 
 function App() {
   const [admins, setAdmins] = useState([]);
-  const [currentAdmin, setCurrentAdmin] = useState(null);
+  const [currentAdmin, setCurrentAdmin] = useState("");
 
   const handleAdminRegister = (newAdmin) => {
     const adminEmails = admins.map((admin) => admin.email);
     if (adminEmails.includes(newAdmin.email)) {
-      alert('An admin with that email address already exists');
+      alert("An admin with that email address already exists");
       return;
     }
     setAdmins([...admins, newAdmin]);
     setCurrentAdmin(newAdmin);
-    alert('Admin registered successfully');
+    alert("Admin registered successfully");
   };
 
   return (

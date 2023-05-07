@@ -21,6 +21,7 @@ function AdminRegistration(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(props);
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import AdminRegistration from "./pages/adminregisteration/AdminRegistration";
+import AdminRegistrationParent from "./pages/adminregisteration/AdminRegisterationParent";
 import FAQ from "./pages/faqs/faqs";
 import Companies from "./pages/companies/companies";
 import CVBuilder from "./pages/cvbuilder/CVbuilder";
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AdminRegistration />} />
+        <Route path="/" element={<AdminRegistrationParent />} />
         <Route path="/addcompetition" element={<AddCompetitionParent/>} />
         <Route path="/competitionlist" element={<CompetitionsListParent />} />
         <Route
