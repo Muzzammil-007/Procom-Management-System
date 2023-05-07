@@ -1,58 +1,28 @@
-import React, { useState } from 'react';
-import AdminRegistration from './AdminRegistration';
-import AddCompetition from './AddCompetition';
-import CompetitionsList from './CompetitionsList';
-import CompetitionInfoBoard from './CompetitionInfoBoard';
-import AdminDashboard from './AdminDashboard';
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import AdminRegistration from "./pages/adminregisteration/AdminRegistration";
+import FAQ from "./pages/faqs/faqs";
+import Companies from "./pages/companies/companies";
+import CVBuilder from "./pages/cvbuilder/CVbuilder";
+import AddCompetitionParent from "./pages/addcompetition/AddCompetitionParent";
+import CompetitionsListParent from "./pages/competitionlist/CompetitionsListParent";
+import AdminDashboardParent from "./pages/admindashboard/AdminDashboardParent";
+import RegisterForCompetition from "./pages/competitionlist/RegisterForCompetition";
 
-
-function App() {
-  const [admins, setAdmins] = useState([]);
-  const [competitions, setCompetitions] = useState([]);
-  const [currentAdmin, setCurrentAdmin] = useState(null);
-
-  const handleAdminRegister = (newAdmin) => {
-    const adminEmails = admins.map((admin) => admin.email);
-    if (adminEmails.includes(newAdmin.email)) {
-      alert('An admin with that email address already exists');
-      return;
-    }
-    setAdmins([...admins, newAdmin]);
-    setCurrentAdmin(newAdmin);
-    alert('Admin registered successfully');
-  };
-
-  const handleAddCompetition = (newCompetition) => {
-    setCompetitions([...competitions, newCompetition]);
-    alert('Competition added successfully');
-  };
-
-
+export default function App() {
   return (
-        <div>
-    <div className="navbar">
-                   <div className="logo">Procom</div>
-                   <div className="links">
-                       <a href="#">Home</a>
-                       <a href="#">About</a>
-                       <a href="#">Contact</a>
-                       <a href="#">Sponsors</a>
-                   </div>
-         </div>
-
-      
-            {currentAdmin ? (
-        <div>
-          <AddCompetition onAddCompetition={handleAddCompetition} />
-          <CompetitionsList competitions={competitions} />
-          <AdminDashboard />
-        </div>
-      ) : (
-        <AdminRegistration onRegister={handleAdminRegister} />
-      )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AdminRegistration />} />
+        <Route path="/addcompetition" element={<AddCompetitionParent/>} />
+        <Route path="/competitionlist" element={<CompetitionsListParent />} />
+        <Route
+          path="/registerforcompetition"
+          element={<RegisterForCompetition />}
+        />
+        <Route path="/admindashboard" element={<AdminDashboardParent />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

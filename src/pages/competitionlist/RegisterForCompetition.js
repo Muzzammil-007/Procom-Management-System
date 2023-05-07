@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styles from './AdminRegisteration.css';
+import './CompetitionList.css';
+import Navbar from '../../components/navbar';
 
 function RegisterForCompetition(props) {
   const { competition, onRegister } = props;
@@ -15,15 +16,7 @@ function RegisterForCompetition(props) {
 
   return (
     <div>
-      <div className='navbar'>
-                <div className="logo">Procom</div>
-                <div className="links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Sponsors</a>
-                </div>
-      </div>
+      <Navbar/>
       <div className='container'>
       <div>
       <h2 className='heading'>Register for a competition</h2>

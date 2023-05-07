@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './AdminRegisteration.css';
+import Navbar from '../../components/navbar';
 
 function AdminRegistration(props) {
   const [email, setEmail] = useState('');
@@ -33,15 +34,7 @@ function AdminRegistration(props) {
 
   return (
     <div>
-      <div className="navbar">
-                <div className="logo">Procom</div>
-                <div className="links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Sponsors</a>
-                </div>
-      </div>
+      <Navbar/>
     
     <div className='container'>
     <div>

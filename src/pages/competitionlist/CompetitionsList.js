@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import RegisterForCompetition from './RegisterForCompetition';
-
+import React, { useState } from "react";
+import RegisterForCompetition from "./RegisterForCompetition";
+import Navbar from "../../components/navbar";
 
 function CompetitionsList(props) {
   const { competitions } = props;
@@ -11,12 +11,13 @@ function CompetitionsList(props) {
   };
 
   const handleRegisterForCompetition = (registration) => {
-    console.log('Registered for competition:', registration);
+    console.log("Registered for competition:", registration);
     setSelectedCompetition(null);
   };
 
   return (
     <div>
+      <Navbar/>
       <h2>Competitions List</h2>
       <ul>
         {competitions.map((competition, index) => (
