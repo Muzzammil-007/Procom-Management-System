@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Navbar from '../../components/navbar';
+import React, { useState } from "react";
+import axios from "axios";
+import Navbar from "../../components/navbar";
 
 function AdminRegistration(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -22,18 +22,21 @@ function AdminRegistration(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      alert("Passwords do not match");
       return;
     }
     try {
-      const response = await axios.post('http://localhost:5001/api/admin/register', {
-        email,
-        password
-      });
+      const response = await axios.post(
+        "http://localhost:5001/api/admin/register",
+        {
+          email,
+          password,
+        }
+      );
       props.onRegister(response.data.admin);
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       console.error(error);
     }
@@ -41,34 +44,42 @@ function AdminRegistration(props) {
 
   return (
     <div>
-      <Navbar/>
-    
-    <div className='container'>
-    <div>
-       <h2 className='formHeading'>Admin Registration</h2>
-      <form className="form" onSubmit={handleSubmit}>
-      <div className='formField'>
-        <label className='formLabel' htmlFor="email">
-          Email:
-          <input className="formField" type="email" value={email} onChange={handleEmailChange} />
-        </label>
+      <Navbar />
+      <div style={{display:"flex",justifyContent:"center",marginTop:"60px"}}>
+          <form style={{padding:"30px", width:"400px", boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
+          <h4>Admin Registration</h4>
+            <div class="form-group">
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder="Email"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                value={password}
+                placeholder="Password"
+                onChange={handlePasswordChange}
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                class="form-control"
+                placeholder="Password again"
+              />
+            </div>
+            <button onClick={handleSubmit} class="btn btn-info" style={{width:"100%"}}>Register</button>
+          </form>
         </div>
-        <div className='formField'>
-        <label className='formLabel' htmlFor="password">
-          Password:
-          <input className="formField" type="password" value={password} onChange={handlePasswordChange} />
-        </label></div>
-        
-        <div className='formField'>
-        <label className='formLabel' htmlFor="password">
-          Confirm Password:
-          <input className="formField" type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
-        </label></div>
-           <button className="submitButton" type="submit">Register</button>
-      </form>
-    </div>
-    </div>
-  </div>
+        </div>
+     
   );
 }
 

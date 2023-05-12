@@ -8,7 +8,7 @@ function AdminDashboard(props) {
 
   return (
     <div>
-      <CompetitionsList competitions={competitions} />
+      <CompetitionsList competitions={competitions}/>
       <hr />
       <CompetitionInfoBoard
         competitions={competitions}

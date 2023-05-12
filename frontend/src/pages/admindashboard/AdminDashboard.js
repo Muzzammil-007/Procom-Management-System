@@ -15,9 +15,9 @@ function CompetitionInfoBoard(props) {
   });
 
   return (
-    <div>
-      <h2>Competition Info Board</h2>
-      <table>
+    <div  class="px-3">
+      <h4>Competition Info Board</h4>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Competition</th>
