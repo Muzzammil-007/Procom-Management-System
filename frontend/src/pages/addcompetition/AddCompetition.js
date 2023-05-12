@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import styles from "./AddCompetition.css";
+import "./AddCompetition.css";
 import Navbar from "../../components/navbar";
+import axios from 'axios';
 
 function AddCompetition(props) {
   const [name, setName] = useState("");
@@ -14,12 +15,19 @@ function AddCompetition(props) {
     setDescription(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    const newCompetition = { name, description };
-    props.onAddCompetition(newCompetition);
-    setName("");
-    setDescription("");
+    try {
+      const response = await axios.post('http://localhost:5001/api/competitions/', {
+        name,
+        description
+      });
+      setName('');
+      setDescription('');
+      props.onAddCompetition(response.data)
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
