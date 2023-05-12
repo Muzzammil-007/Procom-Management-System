@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './CompetitionList.css';
-import Navbar from '../../components/navbar';
+//import Navbar from '../../components/navbar';
 
 function RegisterForCompetition(props) {
   const { competition, onRegister } = props;
@@ -16,7 +16,6 @@ function RegisterForCompetition(props) {
 
   return (
     <div>
-      <Navbar/>
       <div className='container'>
       <div>
       <h2 className='heading'>Register for a competition</h2>

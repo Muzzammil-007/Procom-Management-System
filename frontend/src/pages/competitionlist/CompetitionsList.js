@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RegisterForCompetition from "./RegisterForCompetition";
 import Navbar from "../../components/navbar";
+import axios from "axios";
 
-function CompetitionsList(props) {
-  const { competitions } = props;
+function CompetitionsList() {
   const [selectedCompetition, setSelectedCompetition] = useState(null);
+  const [competitions, setCompetitions] = useState([]);
 
   const handleShowDescription = (competition) => {
     setSelectedCompetition(competition);
@@ -12,16 +13,29 @@ function CompetitionsList(props) {
 
   const handleRegisterForCompetition = (registration) => {
     console.log("Registered for competition:", registration);
-    setSelectedCompetition(null);
+    //setSelectedCompetition(null);
   };
+
+  useEffect(() => {
+    const fetchCompetitions = async () => {
+      try {
+        const res = await axios.get("http://localhost:5001/api/competitions/");
+        console.log(res);
+        setCompetitions(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchCompetitions();
+  }, []);
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <h2>Competitions List</h2>
       <ul>
-        {competitions.map((competition, index) => (
-          <li key={index}>
+        {competitions.map((competition) => (
+          <li>
             <h3>{competition.name}</h3>
             {selectedCompetition === competition ? (
               <div>
