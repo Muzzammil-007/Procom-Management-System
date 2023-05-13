@@ -32,11 +32,12 @@ function CompetitionsList() {
   return (
     <div>
       <Navbar />
-      <h2>Competitions List</h2>
-      <ul>
+      <div class="px-3 py-3">
+      <h4 class="py-2">Competitions List</h4>
+      <ul style={{listStyleType:"circle"}}>
         {competitions.map((competition) => (
           <li>
-            <h3>{competition.name}</h3>
+            <h5>{competition.name}</h5>
             {selectedCompetition === competition ? (
               <div>
                 <p>{competition.description}</p>
@@ -44,18 +45,16 @@ function CompetitionsList() {
                   competition={competition}
                   onRegister={handleRegisterForCompetition}
                 />
-                <button onClick={() => setSelectedCompetition(null)}>
-                  Hide Description
-                </button>
+                <button type="button" class="btn btn-danger" onClick={() => setSelectedCompetition(null)}>Hide Description</button>
+                
               </div>
             ) : (
-              <button onClick={() => handleShowDescription(competition)}>
-                Show Description
-              </button>
+              <button type="button" class="btn btn-info" onClick={() => handleShowDescription(competition)}>Show Description</button>
             )}
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

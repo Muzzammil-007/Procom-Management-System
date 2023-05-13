@@ -33,39 +33,33 @@ function AddCompetition(props) {
   return (
     <div>
       <Navbar />
-      <div className="container">
-        <div>
-          <h2 className="heading">Add Competition</h2>
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="formField">
-              <label className="formLabel">
-                Name:
-                <input
-                  className="formInput"
-                  type="text"
-                  value={name}
-                  onChange={handleNameChange}
-                />
-              </label>
+      <div style={{display:"flex",justifyContent:"center",marginTop:"60px"}}>
+          <form style={{padding:"30px", width:"400px", boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
+          <h4>Add Competition</h4>
+            <div class="form-group">
+              <input
+                type="text"
+                value={name}
+                onChange={handleNameChange}
+                placeholder="Name"
+                class="form-control"
+              />
             </div>
-            <div className="formField">
-              <label className="formLabel">
-                Description:
-                <input
-                  className="formInput"
-                  type="text"
-                  value={description}
-                  onChange={handleDescriptionChange}
-                />
-              </label>
+            <div class="form-group">
+              <input
+                type="test"
+                value={description}
+                placeholder="Description"
+                onChange={handleDescriptionChange}
+                class="form-control"
+              />
             </div>
-            <button className="submitButton" type="submit">
-              Add Competition
-            </button>
+            <button onClick={handleSubmit} class="btn btn-success" style={{width:"100%"}}>Add</button>
           </form>
         </div>
-      </div>
-    </div>
+        </div>
+
+
   );
 }
 
