@@ -10,6 +10,10 @@ const competitionRoute = require("./routes/competition");
 const participantRoute = require("./routes/participants");
 const sponsorsRoute = require("./routes/sponsors");
 const vendorsRoute = require("./routes/vendors");
+const leaderboardRouter = require('./routes/leaderboard');
+const countdownRoute = require('./routes/countdown');
+const itineraryRouter = require('./routes/itinerary');
+const competitionRequestRouter = require('./routes/competitionRequests');
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,6 +35,11 @@ app.use("/api/participants", participantRoute);
 app.use("/api/competitions", competitionRoute);
 app.use("/api/sponsors", sponsorsRoute);
 app.use('/api/vendors', vendorsRoute);
+app.use('/api/leaderboard', leaderboardRouter);
+app.use('/api/countdown', countdownRoute);
+app.use('/itinerary', itineraryRouter);
+app.use('/api/competition-request', competitionRequestRouter);
+
 // Start the server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
