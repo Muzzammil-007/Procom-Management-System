@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './Vendors.module.css';
+import Navbar from '../../components/navbar';
 
 const Vendors = () => {
   const [vendorName, setVendorName] = useState('');
@@ -13,7 +14,7 @@ const Vendors = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('/api/vendors', {
+      const response = await axios.post('http://localhost:5001/api/vendors', {
         name: vendorName,
         email: vendorEmail,
         businessType: businessType,
@@ -33,15 +34,7 @@ const Vendors = () => {
 
   return (
     <div>
-      <div className="navbar">
-                <div className="logo">Procom</div>
-                <div className="links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Sponsors</a>
-                </div>
-      </div>
+   <Navbar/>
 
       <div className={styles.container}>
         <h1 className={styles.heading}>Vendor Registration</h1>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './Sponsors.module.css';
+import Navbar from '../../components/navbar';
 
 const Sponsors = () => {
     const [sponsors, setSponsors] = useState([]);
@@ -12,7 +13,7 @@ const Sponsors = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('/api/sponsors', {
+            const response = await axios.post('http://localhost:5001/api/sponsors/register', {
                 name: sponsorName,
                 logo: sponsorLogo,
                 url: sponsorUrl,
@@ -29,7 +30,7 @@ const Sponsors = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/api/sponsors');
+                const response = await axios.get('http://localhost:5001/api/sponsors');
                 response.data= [  {    "id": 1,    "name": "Acme Inc.",    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg",    "url": "https://acme.com"  },  {    "id": 2,    "name": "Widgets LLC",    "logo": "https://example.com/widgets_logo.png",    "url": "https://widgets.com"  },  {    "id": 3,    "name": "Globex Corporation",    "logo": "https://example.com/globex_logo.png",    "url": "https://globex.com"  }]
 
                 setSponsors(response.data);
@@ -43,15 +44,7 @@ const Sponsors = () => {
 
     return (
         <div>
-            <div className="navbar">
-                <div className="logo">Procom</div>
-                <div className="links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Sponsors</a>
-                </div>
-            </div>
+            <Navbar/>
 
             <div className={styles.container}>
                 <h1 className={styles.heading}>Sponsors</h1>

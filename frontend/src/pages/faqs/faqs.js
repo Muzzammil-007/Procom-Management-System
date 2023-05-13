@@ -1,5 +1,6 @@
 import React from 'react';
 import './FAQsPage.css';
+import Navbar from '../../components/navbar';
 
 const questionsAndAnswers = [
   {
@@ -36,15 +37,7 @@ const FAQ = ({ question, answer }) => {
 const FAQsPage = () => {
   return (
     <div>
-      <div className="navbar">
-        <div className="logo">Procom</div>
-        <div className="links">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-          <a href="#">Sponsors</a>
-        </div>
-      </div>
+     <Navbar/>
 
       <div className="faqsPage">
 

@@ -8,6 +8,8 @@ const adminRoute = require("./routes/admin");
 const companyRoute = require("./routes/company");
 const competitionRoute = require("./routes/competition");
 const participantRoute = require("./routes/participants");
+const sponsorsRoute = require("./routes/sponsors");
+const vendorsRoute = require("./routes/vendors");
 
 const app = express();
 app.use(bodyParser.json());
@@ -27,7 +29,8 @@ app.use("/api/companies", companyRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/participants", participantRoute);
 app.use("/api/competitions", competitionRoute);
-
+app.use("/api/sponsors", sponsorsRoute);
+app.use('/api/vendors', vendorsRoute);
 // Start the server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {

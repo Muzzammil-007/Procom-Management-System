@@ -7,8 +7,12 @@ export default function Navbar() {
       <div className="links">
         <a href="#">Home</a>
         <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Sponsors</a>
+        <a href="/companies">Companies</a>
+        <a href="/vendors">Vendors</a>
+        <a href="/sponsors">Sponsors</a>
+        <a href="/FAQs">FAQs</a>
+        <a href="/admindashboard">Admin</a>
+
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CVBuilder.module.css';
+import Navbar from '../../components/navbar';
 
 const CVBuilder = () => {
     const [fullName, setFullName] = useState('');
@@ -26,15 +27,7 @@ const CVBuilder = () => {
 
     return (
         <div>
-            <div className="navbar">
-                <div className="logo">Procom</div>
-                <div className="links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Sponsors</a>
-                </div>
-            </div>
+            <Navbar/>
 
             <div className={styles.container}>
                 <h1 className={styles.heading}>Resume Upload</h1>
