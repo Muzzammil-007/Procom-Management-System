@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from './Vendors.module.css';
 import Navbar from '../../components/navbar';
 
+
 const Vendors = () => {
   const [vendorName, setVendorName] = useState('');
   const [vendorEmail, setVendorEmail] = useState('');

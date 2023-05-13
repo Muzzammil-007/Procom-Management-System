@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+
 
 const CompetitionRequestForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [competition, setCompetition] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [competition, setCompetition] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Competition request submitted:', { name, email, competition });
-    
-    setName('');
-    setEmail('');
-    setCompetition('');
+    console.log("Competition request submitted:", { name, email, competition });
+
+    setName("");
+    setEmail("");
+    setCompetition("");
   };
 
   return (
