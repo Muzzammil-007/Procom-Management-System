@@ -13,7 +13,9 @@ import AdminDashboardParent from "./pages/admindashboard/AdminDashboardParent";
 import RegisterForCompetition from "./pages/competitionlist/RegisterForCompetition";
 
 import Compreq from "./pages/comp_req/comp_req";
-import Countdown from "./pages/countdown/countdown";
+import countdown from "./pages/countdown/countdown"; 
+
+
 import EventItinerary from "./pages/event_itinerary/event_itinerary";
 import Board from "./pages/leaderboard/board";
 import Competitions from "./pages/leaderboard/competitions";
@@ -36,7 +38,7 @@ export default function App() {
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/comp_req" element={<Compreq />} />
-        <Route path="/countdown" element={<Countdown />} />
+        <Route path="/countdown" element={<countdown />} /> {/* Update component name */}
         <Route path="/event_itinerary" element={<EventItinerary />} />
         <Route path="/leaderboard" element={<Board />} />
         <Route path="/leaderboard" element={<Competitions />} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import './eventItinerary.css';
 
 const EventItinerary = () => {
   const schedule = [
@@ -18,22 +19,27 @@ const EventItinerary = () => {
   ];
 
   return (
-    <div>
-      <h2>Procom Event Itinerary</h2>
+    <div className="event-itinerary">
+      <h2 className="event-title">Procom Event Itinerary</h2>
       <ul>
         {schedule.map(item => (
           <li key={item.time}>
-            <strong>{item.time}</strong>: {item.event}
+            <span className="event-time">{item.time}</span>: {item.event}
             {item.subEvents && (
-              <ul>
+              <ul className="sub-events">
                 {item.subEvents.map(subEvent => (
-                  <li key={subEvent}>{subEvent}</li>
+                  <li key={subEvent} className="sub-event-item">{subEvent}</li>
                 ))}
               </ul>
             )}
           </li>
         ))}
       </ul>
+      <img
+        src="event_image.jpg"
+        alt="Event Image"
+        className="event-image"
+      />
     </div>
   );
 };

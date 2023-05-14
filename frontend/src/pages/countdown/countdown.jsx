@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./cd.css";
 
+
+
 export const Countdown = () => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -8,6 +10,7 @@ export const Countdown = () => {
   const [seconds, setSeconds] = useState(0);
   const [inputDate, setInputDate] = useState("1 Jan 2023");
   const [currentDate, setCurrentDate] = useState(inputDate);
+  
 
   useEffect(() => {
     const changingDate = new Date(inputDate);
