@@ -1,0 +1,44 @@
+
+.navbar {
+    background-color: #343a40;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  /* Jumbotron */
+  .jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .display-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .lead {
+    margin-bottom: 2rem;
+  }
+  
+  /* Event Image */
+  .event-image {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 1rem 0;
+    background-color: #343a40;
+    color: #fff;
+  }
+  
