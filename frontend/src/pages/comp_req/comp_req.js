@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 
 const CompetitionRequestForm = () => {
@@ -14,6 +15,29 @@ const CompetitionRequestForm = () => {
     setEmail("");
     setCompetition("");
   };
+
+  const createCompetitionRequest = async () => {
+    try {
+      const response = await axios.post('/api/competition-requests', {
+        name: 'sara Doe',
+        email: 'saradoe@example.com',
+        competition: 'Coding Challenge'
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  const getCompetitionRequests = async () => {
+    try {
+      const response = await axios.get('/api/competition-requests');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
 
   return (
     <div>

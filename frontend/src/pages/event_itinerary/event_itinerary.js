@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import './eventItinerary.css';
 
 const EventItinerary = () => {
@@ -17,7 +18,7 @@ const EventItinerary = () => {
     { time: '6:00 PM - 7:00 PM', event: 'Innovative Hardware Exhibition' },
     { time: '8:00 PM', event: 'Participants Leave' }
   ];
-
+   
   return (
     <div className="event-itinerary">
       <h2 className="event-title">Procom Event Itinerary</h2>
@@ -43,5 +44,36 @@ const EventItinerary = () => {
     </div>
   );
 };
+
+
+
+
+const getAllItineraries = async () => {
+  try {
+    const response = await axios.get('/api/itineraries');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
+const createItinerary = async (time, event, subevent) => {
+  try {
+    const response = await axios.post('/api/itineraries', {
+      time,
+      event,
+      subevent,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export { getAllItineraries, createItinerary };
+
 
 export default EventItinerary;

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 const CompanyList = () => {
   const companies = [
@@ -42,5 +43,39 @@ const CompanyList = () => {
     </div>
   );
 };
+
+const createParticipant = async (name, email, competition) => {
+  try {
+    const response = await axios.post('/api/participants', { name, email, competition });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// Fetch all participants
+const getAllParticipants = async () => {
+  try {
+    const response = await axios.get('/api/participants');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// Fetch participants for a specific competition
+const getParticipantsByCompetition = async (competition) => {
+  try {
+    const response = await axios.get(`/api/participants/${competition}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export { createParticipant, getAllParticipants, getParticipantsByCompetition };
 
 export default CompanyList;

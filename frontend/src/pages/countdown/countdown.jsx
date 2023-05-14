@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "./cd.css";
 
 
@@ -35,6 +36,9 @@ export const Countdown = () => {
     setCurrentDate(inputDate);
   };
 
+
+
+
   return (
     <div className="countdown-container">
       <div className="countdown-values">
@@ -64,3 +68,28 @@ export const Countdown = () => {
     </div>
   );
 };
+
+
+const updateOrCreateCountdown = async (eventId, days, hours, minutes, seconds) => {
+  try {
+    const countdownFields = { days, hours, minutes, seconds, eventId };
+    let countdown;
+
+    // Check if countdown exists
+    const existingCountdown = await axios.get(`/api/countdown/${eventId}`);
+    if (existingCountdown.data) {
+      // Update existing countdown
+      countdown = await axios.post(`/api/countdown/${eventId}`, countdownFields);
+    } else {
+      // Create new countdown
+      countdown = await axios.post(`/api/countdown/${eventId}`, countdownFields);
+    }
+
+    return countdown.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export { updateOrCreateCountdown };

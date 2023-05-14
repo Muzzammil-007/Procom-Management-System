@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Competitions from "./competitions";
 import { Leaderboard } from "./cs";
+import axios from 'axios';
 
 
 
@@ -48,4 +49,44 @@ function between(data, between) {
       return b.score - a.score;
     }
   });
+
 }
+const getAllCompetitions = async () => {
+  try {
+    const response = await axios.get('/api/competitions');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// Fetch a competition by ID
+const getCompetitionById = async (id) => {
+  try {
+    const response = await axios.get(`/api/competitions/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// Create a new competition
+const createCompetition = async (name, location, winningTeamImage, date, winningScore) => {
+  try {
+    const response = await axios.post('/api/competitions', {
+      name,
+      location,
+      winningTeamImage,
+      date,
+      winningScore,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export { getAllCompetitions, getCompetitionById, createCompetition };
